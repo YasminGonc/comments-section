@@ -1,0 +1,91 @@
+.container {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.container > header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 1rem;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    color: var(--dark-blue);
+}
+
+.author img {
+    width: 2.5rem;
+}
+
+.icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.author span {
+    color: var(--grayish-blue);
+    font-size: 0.875rem;
+}
+
+.replay {
+    color: var(--moderate-blue);
+    background-color: transparent;
+    border: 0;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.replay:hover {
+    color: var(--light-grayish-blue);
+}
+
+.replay svg {
+    margin-right: 0.5rem;
+}
+
+.delete {
+    color: var(--soft-red);
+    background-color: transparent;
+    border: 0;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.delete:hover {
+    color: var(--pale-red);
+}
+
+.delete svg {
+    margin-right: 0.5rem;
+}
+
+.edit {
+    color: var(--moderate-blue);
+    background-color: transparent;
+    border: 0;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.edit:hover {
+    color: var(--light-grayish-blue);
+}
+
+.edit svg {
+    margin-right: 0.5rem;
+}
+
+.displayNone {
+    display: none;
+}

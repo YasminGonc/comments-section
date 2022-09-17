@@ -1,0 +1,11 @@
+.wrapper {
+    max-width: 50rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.subCommentWrapper {
+    margin-left: 5rem;
+    padding-left: 2rem;
+    border-left: 1px solid var(--grayish-blue);
+}
