@@ -26,7 +26,7 @@ export function PrincipalComment() {
             },
             time: new Date('2022-09-03 23:00:00'),
             content: 'Whoa, your project looks awesome! How long have you been coding for? I am still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!',
-            isAuthor: false 
+            isAuthor: false
         }
     ]);
     
@@ -53,6 +53,11 @@ export function PrincipalComment() {
         setNewCommentText('');
     }
 
+    function deleteComment() {
+        console.log('deletar')
+        //comparar o array de comentários para poder excluir
+    }
+
     return (
         <>
             {comments.map(comment => {
@@ -63,6 +68,7 @@ export function PrincipalComment() {
                         time={comment.time}
                         content={comment.content}
                         isAuthor={comment.isAuthor}
+                        onDeleteComment={deleteComment}
                     />
                 )
             })}

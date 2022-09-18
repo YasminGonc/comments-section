@@ -29,49 +29,49 @@ export function SubComment() {
         },
     ]);
 
-const [newCommentText, setNewCommentText] = useState('');
+    const [newCommentText, setNewCommentText] = useState('');
 
-function newCommentChange(commentText: string) {
-    setNewCommentText(commentText);
-}
+    function newCommentChange(commentText: string) {
+        setNewCommentText(commentText);
+    }
 
-function createNewComment() {
-    setSubComments([
-        ...subComments,
-        {
-            id: 3,
-            author: {
-                avatar: AvatarJuliosImg,
-                name: 'juliusomo'
-            },
-            time: new Date(),
-            content: newCommentText,
-            isAuthor: true
-        }
-    ]);
-    setNewCommentText('');
-}
+    function createNewComment() {
+        setSubComments([
+            ...subComments,
+            {
+                id: 3,
+                author: {
+                    avatar: AvatarJuliosImg,
+                    name: 'juliusomo'
+                },
+                time: new Date(),
+                content: newCommentText,
+                isAuthor: true
+            }
+        ]);
+        setNewCommentText('');
+    }
 
-return (
-    <>
-        {subComments.map(comment => {
-            return (
-                <Comment
-                    key={comment.id}
-                    author={comment.author}
-                    time={comment.time}
-                    content={comment.content}
-                    isAuthor={comment.isAuthor}
-                />
-            )
-        })}
+    return (
+        <>
+            {subComments.map(comment => {
+                return (
+                    <Comment
+                        key={comment.id}
+                        author={comment.author}
+                        time={comment.time}
+                        content={comment.content}
+                        isAuthor={comment.isAuthor}
+                    />
+                )
+            })}
 
-        <CommentBar
-            onNewCommentChange={newCommentChange}
-            onCreateNewComment={createNewComment}
-            inputValue={newCommentText}
-        />
+            {/* <CommentBar
+                onNewCommentChange={newCommentChange}
+                onCreateNewComment={createNewComment}
+                inputValue={newCommentText}
+            /> */}
 
-    </>
-);
+        </>
+    );
 }
