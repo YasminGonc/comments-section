@@ -1,32 +1,49 @@
+import { useState } from 'react';
 import styles from './Comment.module.css';
 
+import { formatDistanceToNow } from 'date-fns';
 import { ArrowBendUpLeft, Pencil, Trash } from 'phosphor-react';
+import { CommentBar } from '../commentBar/CommentBar';
 
 interface CommentProps {
-    avatarUrl: string;
-    name: string;
-    time: string;
+    author: any;
+    time: Date;
     content: string;
-    isAuthor?: boolean;
+    isAuthor: boolean;
 }
 
 export function Comment({
-    avatarUrl,
-    name,
+    author,
     time,
     content,
-    isAuthor = false,
+    isAuthor
 }:CommentProps) {
+    const publishedDateRelativeToNow = formatDistanceToNow(time, {
+        addSuffix: true,
+    });
+
+    const [showReplayBox, setShowReplayBox] = useState<boolean>(false);
+
+    function showReplay() {
+        if (showReplayBox) {
+           setShowReplayBox(false); 
+        }
+        else {
+            setShowReplayBox(true); 
+        }
+    }
+
     return(
+        <>
         <div className={styles.container}>
             <header>
                 <div className={styles.author}>
-                    <img src={avatarUrl} />
-                    <strong>{name}</strong>
-                    <span>{time}</span>
+                    <img src={author.avatar} />
+                    <strong>{author.name}</strong>
+                    <time title={time.toDateString()}>{publishedDateRelativeToNow}</time>
                 </div>
                 <div className={styles.icons}>
-                    <button className={isAuthor ? styles.displayNone : styles.replay}>
+                    <button onClick={showReplay} className={isAuthor ? styles.displayNone : styles.replay}>
                         <ArrowBendUpLeft weight="bold"/>
                         Replay
                     </button>
@@ -46,5 +63,10 @@ export function Comment({
             <p>{content}</p>
 
         </div>
+
+        <div className={showReplayBox ? styles.display : styles.displayNone}>
+            <CommentBar />
+        </div>
+        </>
     );
 }
