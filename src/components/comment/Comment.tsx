@@ -65,7 +65,7 @@ export function Comment({
         </div>
 
         <div className={showReplayBox ? styles.display : styles.displayNone}>
-            <CommentBar />
+            {/* <CommentBar /> */}
         </div>
         </>
     );

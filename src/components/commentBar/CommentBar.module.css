@@ -1,4 +1,4 @@
-.container {
+.containerForm {
     background-color: var(--white);
     border-radius: 8px;
     padding: 1.5rem;
@@ -9,11 +9,11 @@
     justify-content: space-between;
 }
 
-.container img {
+.containerForm img {
     width: 2.5rem
 }
 
-.container > textarea {
+.containerForm > textarea {
     width: 32rem;
     height: 5rem;
     padding: 0.5rem;
@@ -23,7 +23,7 @@
     border-radius: 8px;
 }
 
-.container > button {
+.containerForm > button {
     padding: 0.5rem 1rem;
     width: 7rem;
     background-color: var(--moderate-blue);
@@ -35,6 +35,6 @@
     cursor: pointer;
 }
 
-.container > button:hover {
+.containerForm > button:hover {
     background-color: var(--light-grayish-blue);
 }
