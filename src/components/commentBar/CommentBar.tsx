@@ -1,19 +1,22 @@
 import styles from './CommentBar.module.css';
+
+import { ChangeEvent, FormEvent } from 'react';
+
 import AvatarJuliosImg from '../../assets/avatar-juliusomo.webp';
 
 interface CommentBarProps {
-    onNewCommentChange: (commentText: string) => any
-    onCreateNewComment: () => any
-    inputValue: string
+    onNewCommentChange: (commentText: string) => void;
+    onCreateNewComment: () => void;
+    inputValue: string;
 }
 
 export function CommentBar({ onNewCommentChange, onCreateNewComment, inputValue }: CommentBarProps) {
 
-    function handleNewCommentChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
+    function handleNewCommentChange(event: ChangeEvent<HTMLTextAreaElement>) {
         onNewCommentChange(event.target.value);
     }
 
-    function handleNewComment(event: React.FormEvent<HTMLFormElement>) {
+    function handleNewComment(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
         onCreateNewComment();
     }

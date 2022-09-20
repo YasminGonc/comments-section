@@ -1,10 +1,14 @@
+import styles from './PrincipalComment.module.css';
+
 import { useState } from 'react';
 import { Comment } from '../comment/Comment';
 import { CommentBar } from '../commentBar/CommentBar';
+import { SubComment } from '../SubComment/SubComment';
 
 import AvatarAmyImg from '../../assets/avatar-amyrobson.webp';
 import AvatarMaxImg from '../../assets/avatar-maxblagun.webp';
 import AvatarJuliosImg from '../../assets/avatar-juliusomo.webp';
+
 
 export function PrincipalComment() {
     const [comments, setComments] = useState([
@@ -16,7 +20,8 @@ export function PrincipalComment() {
             },
             time: new Date('2022-08-17 22:02:00'),
             content: 'Impressive! Though it seems the drag feature could be improved. But overrall it looks increadible. You have nailed the design and the responsiveness at various breakpoints works really well.',
-            isAuthor: false
+            isAuthor: false,
+            hasComment: true
         },
         {
             id: 2,
@@ -26,7 +31,8 @@ export function PrincipalComment() {
             },
             time: new Date('2022-09-03 23:00:00'),
             content: 'Whoa, your project looks awesome! How long have you been coding for? I am still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!',
-            isAuthor: false
+            isAuthor: false,
+            hasComment: false
         }
     ]);
     
@@ -47,7 +53,8 @@ export function PrincipalComment() {
                 },
                 time: new Date(),
                 content: newCommentText,
-                isAuthor: true
+                isAuthor: true,
+                hasComment: false
             }
         ]);
         setNewCommentText('');
@@ -59,7 +66,7 @@ export function PrincipalComment() {
     }
 
     return (
-        <>
+        <div>
             {comments.map(comment => {
                 return (
                     <Comment
@@ -68,10 +75,15 @@ export function PrincipalComment() {
                         time={comment.time}
                         content={comment.content}
                         isAuthor={comment.isAuthor}
+                        hasComment={comment.hasComment}
                         onDeleteComment={deleteComment}
                     />
                 )
             })}
+
+            {/* <div className={styles.subCommentWrapper}>
+                <SubComment />
+            </div> */}
 
             <CommentBar 
                 onNewCommentChange={newCommentChange}
@@ -79,6 +91,6 @@ export function PrincipalComment() {
                 inputValue={newCommentText}
             />
 
-        </>
+        </div>
     );
 }

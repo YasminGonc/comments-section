@@ -1,17 +1,16 @@
-import { useState } from 'react';
 import styles from './Comment.module.css';
 
+import { useState } from 'react';
 import { formatDistanceToNow } from 'date-fns';
 import { ArrowBendUpLeft, Pencil, Trash } from 'phosphor-react';
-import { CommentBar } from '../commentBar/CommentBar';
-import { SubComment } from '../SubComment/SubComment';
 
 interface CommentProps {
     author: any;
     time: Date;
     content: string;
     isAuthor: boolean;
-    onDeleteComment: () => any
+    hasComment: boolean;
+    onDeleteComment: () => void;
 }
 
 export function Comment({
@@ -19,8 +18,10 @@ export function Comment({
     time,
     content,
     isAuthor,
+    hasComment,
     onDeleteComment
 }:CommentProps) {
+
     const publishedDateRelativeToNow = formatDistanceToNow(time, {
         addSuffix: true,
     });
@@ -72,6 +73,10 @@ export function Comment({
 
                 <p>{content}</p>
 
+            </div>
+
+            <div className={hasComment ? styles.displayComment : styles.displayNone}>
+                    <p>tem comentário</p>
             </div>
         </>
     );
