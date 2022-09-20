@@ -32,7 +32,7 @@ export const inicialComments = async () => {
             content: 'SECOND COMMENT SECOND CHILD. I could not agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.',
             userName: 'juliusomo',
             userAvatar: 'https://raw.githubusercontent.com/YasminGonc/comments-section/main/src/assets/avatar-juliusomo.webp',
-            userId: 3,
+            userId: 4,
             parentId: 2,
             createdAt: new Date('2022-09-15 22:02:00')
         }
